@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Backend",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "index.js",
-    "dev":"nodemon"
+    "dev":"nodemon src/index.js"
   },
   "author": "Mohmad Sahil",
   "license": "ISC",
