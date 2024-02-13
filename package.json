@@ -7,11 +7,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "index.js",
-    "dev":"nodemon src/index.js"
+    "dev": "nodemon src/index.js"
   },
   "author": "Mohmad Sahil",
   "license": "ISC",
   "dependencies": {
     "nodemon": "^3.0.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
