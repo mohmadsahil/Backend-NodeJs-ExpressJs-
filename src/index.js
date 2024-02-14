@@ -5,5 +5,12 @@ import connectDB from "./db/connections.js";
 const app = express()
 
 
-
-connectDB();
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT,()=>{
+        console.log(`App is Listning on ${process.env.PORT}`);
+    });
+})
+.catch((err)=>{
+    console.log("MONGO DB CONNECTION FAILED !!!",err);
+})
