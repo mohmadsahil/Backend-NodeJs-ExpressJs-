@@ -7,6 +7,3 @@ const app = express()
 
 
 connectDB();
-
-
-
