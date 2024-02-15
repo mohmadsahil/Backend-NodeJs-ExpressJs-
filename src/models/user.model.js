@@ -45,4 +45,22 @@ const userSchema =new mongoose.Schema({
 
 },{timestamps:true}) 
 
-export const User = mongoose.model("User",userSchema);
+export const User = mongoose.model("User",userSchema);  
+
+
+//Password Encrypt
+
+userSchema.pre("save",async function(next){
+    if(this.isModified("password"))
+    {
+        this.password = bcrypt.hash(this.password,10)   //Password Would be Encry between 10 Numbers
+        next();
+    }
+})
+
+//Compare Password during login
+
+userSchema.methods.isPasswordCorrect = async function(password)
+{
+    return await bcrypt.compare(password,this.password)
+}
