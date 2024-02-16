@@ -14,4 +14,19 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static("public")); // we have keep some public asset like images,favicon etc for the future
 app.use(cookieParser()) 
 
+
+//Routes
+
+import userRouter from "./routes/user.routes.js"
+
+//Routes Declartion
+
+app.use("/api/v1/users",userRouter)
+
+
+
+
+
+
+
 export{app} 
