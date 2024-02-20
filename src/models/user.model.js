@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
+import mongoose ,{Schema}from "mongoose";
+// import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
-const userSchema =new mongoose.Schema({
+const userSchema =new Schema({
     username:{
         type:String,
         required:true,
@@ -26,7 +26,7 @@ const userSchema =new mongoose.Schema({
     },
     avatar:{
         type:String,
-        required:true,
+        // required:true,
     },
     coverImage:{
         type:String,
@@ -53,7 +53,7 @@ export const User = mongoose.model("User",userSchema);
 userSchema.pre("save",async function(next){
     if(this.isModified("password"))
     {
-        this.password = bcrypt.hash(this.password,10)   //Password Would be Encry between 10 Numbers
+        this.password = await bcrypt.hash(this.password,10)   //Password Would be Encry between 10 Numbers
         next();
     }
 })
